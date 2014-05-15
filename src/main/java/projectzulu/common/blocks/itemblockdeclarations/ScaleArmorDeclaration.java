@@ -12,9 +12,9 @@ import cpw.mods.fml.common.registry.GameRegistry;
 
 public class ScaleArmorDeclaration extends ItemSetDeclaration {
 
-    public final int renderIndex;
+    public final String renderIndex;
 
-    public ScaleArmorDeclaration(int renderIndex) {
+    public ScaleArmorDeclaration(String renderIndex) {
         super(new String[] { "ScaleHelmet", "ScaleChest", "ScaleLegs", "ScaleBoots" });
         this.renderIndex = renderIndex;
     }

@@ -12,9 +12,9 @@ import cpw.mods.fml.common.registry.GameRegistry;
 
 public class FurArmorDeclaration extends ItemSetDeclaration {
 
-    public final int renderIndex;
+    public final String renderIndex;
 
-    public FurArmorDeclaration(int renderIndex) {
+    public FurArmorDeclaration(String renderIndex) {
         super(new String[] { "FurHelmet", "FurChest", "FurLegs", "FurBoots" });
         this.renderIndex = renderIndex;
     }

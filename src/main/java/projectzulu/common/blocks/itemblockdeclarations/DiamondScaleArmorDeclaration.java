@@ -12,9 +12,9 @@ import cpw.mods.fml.common.registry.GameRegistry;
 
 public class DiamondScaleArmorDeclaration extends ItemSetDeclaration {
 
-    public final int renderIndex;
+    public final String renderIndex;
 
-    public DiamondScaleArmorDeclaration(int renderIndex) {
+    public DiamondScaleArmorDeclaration(String renderIndex) {
         super(new String[] { "DiamondScaleHelmet", "DiamondScaleChest", "DiamondScaleLegs", "DiamondScaleBoots" });
         this.renderIndex = renderIndex;
     }

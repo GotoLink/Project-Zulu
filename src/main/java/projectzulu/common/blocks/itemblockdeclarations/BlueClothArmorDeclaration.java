@@ -12,9 +12,9 @@ import cpw.mods.fml.common.registry.GameRegistry;
 
 public class BlueClothArmorDeclaration extends ItemSetDeclaration {
 
-    public final int renderIndex;
+    public final String renderIndex;
 
-    public BlueClothArmorDeclaration(int renderIndex) {
+    public BlueClothArmorDeclaration(String renderIndex) {
         super(new String[] { "BlueClothHelmet", "BlueClothChest", "BlueClothLegs", "BlueClothBoots" });
         this.renderIndex = renderIndex;
     }

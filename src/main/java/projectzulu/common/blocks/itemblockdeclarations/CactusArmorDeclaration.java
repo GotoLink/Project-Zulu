@@ -12,9 +12,9 @@ import cpw.mods.fml.common.registry.GameRegistry;
 
 public class CactusArmorDeclaration extends ItemSetDeclaration {
 
-    public final int renderIndex;
+    public final String renderIndex;
 
-    public CactusArmorDeclaration(int renderIndex) {
+    public CactusArmorDeclaration(String renderIndex) {
         super(new String[] { "CactusHelmet", "CactusChest", "CactusLegs", "CactusBoots" });
         this.renderIndex = renderIndex;
     }

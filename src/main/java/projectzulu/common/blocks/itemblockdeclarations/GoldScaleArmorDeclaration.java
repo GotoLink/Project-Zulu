@@ -12,9 +12,9 @@ import cpw.mods.fml.common.registry.GameRegistry;
 
 public class GoldScaleArmorDeclaration extends ItemSetDeclaration {
 
-    public final int renderIndex;
+    public final String renderIndex;
 
-    public GoldScaleArmorDeclaration(int renderIndex) {
+    public GoldScaleArmorDeclaration(String renderIndex) {
         super(new String[] { "GoldScaleHelmet", "GoldScaleChest", "GoldScaleLegs", "GoldScaleBoots" });
         this.renderIndex = renderIndex;
     }

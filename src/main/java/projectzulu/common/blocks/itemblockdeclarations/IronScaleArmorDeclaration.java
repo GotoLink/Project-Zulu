@@ -12,9 +12,9 @@ import cpw.mods.fml.common.registry.GameRegistry;
 
 public class IronScaleArmorDeclaration extends ItemSetDeclaration {
 
-    public final int renderIndex;
+    public final String renderIndex;
 
-    public IronScaleArmorDeclaration(int renderIndex) {
+    public IronScaleArmorDeclaration(String renderIndex) {
         super(new String[] { "IronScaleHelmet", "IronScaleChest", "IronScaleLegs", "IronScaleBoots" });
         this.renderIndex = renderIndex;
     }

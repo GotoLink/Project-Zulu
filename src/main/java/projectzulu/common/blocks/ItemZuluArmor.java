@@ -1,6 +1,5 @@
 package projectzulu.common.blocks;
 
-import net.minecraft.client.renderer.entity.RenderBiped;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemArmor;
@@ -21,17 +20,13 @@ public class ItemZuluArmor extends ItemArmor implements ITempArmor {
     /** Holds the amount of damage that the armor reduces at full durability. */
     public final int damageReduceAmount;
 
-    /**
-     * Used on RenderPlayer to select the correspondent armor to be rendered on the player: 0 is cloth, 1 is chain, 2 is
-     * iron, 3 is diamond and 4 is gold.
-     */
-    public final int renderIndex;
+    public final String renderIndex;
 
     /** The EnumArmorMaterial used for this ItemArmor */
     private final ArmorMaterial material;
 
-    public ItemZuluArmor(ArmorMaterial armorMat, int renderIndex, int armorType, String name) {
-        super(armorMat, renderIndex, armorType);
+    public ItemZuluArmor(ArmorMaterial armorMat, String renderIndex, int armorType, String name) {
+        super(armorMat, 0, armorType);
         this.material = armorMat;
         this.armorType = armorType;
         this.renderIndex = renderIndex;
@@ -46,6 +41,7 @@ public class ItemZuluArmor extends ItemArmor implements ITempArmor {
     /**
      * Return the enchantability factor of the item, most of the time is based on material.
      */
+    @Override
     public int getItemEnchantability() {
         return this.material.getEnchantability();
     }
@@ -98,7 +94,7 @@ public class ItemZuluArmor extends ItemArmor implements ITempArmor {
 
     @Override
     public String getArmorTexture(ItemStack stack, Entity entity, int slot, String type) {
-        return DefaultProps.blockKey + ":armor_sets/" + RenderBiped.bipedArmorFilenamePrefix[renderIndex] + "_"
+        return DefaultProps.blockKey + ":armor_sets/" + renderIndex + "_"
                 + (armorType == 2 ? 2 : 1) + ".png";
     }
 }
