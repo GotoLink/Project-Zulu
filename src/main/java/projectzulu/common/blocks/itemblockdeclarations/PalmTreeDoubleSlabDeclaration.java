@@ -1,7 +1,6 @@
 package projectzulu.common.blocks.itemblockdeclarations;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockSlab;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
@@ -36,9 +35,7 @@ public class PalmTreeDoubleSlabDeclaration extends BlockDeclaration {
     protected void registerBlock() {
         if (BlockList.palmTreeDoubleSlab.isPresent() && BlockList.palmTreeSlab.isPresent()) {
             Block block = BlockList.palmTreeDoubleSlab.get();
-            ItemZuluSlab.initialise((BlockSlab) BlockList.palmTreeSlab.get(),
-                    (BlockSlab) BlockList.palmTreeDoubleSlab.get());
-            GameRegistry.registerBlock(block, ItemZuluSlab.class, name.toLowerCase());
+            GameRegistry.registerBlock(block, ItemZuluSlab.class, name.toLowerCase(), DefaultProps.BlocksModId, BlockList.palmTreeSlab.get(), block);
             OreDictionary.registerOre("slabWood", new ItemStack(block));
             OreDictionary.registerOre("slabPalm", new ItemStack(block));
             Blocks.fire.setFireInfo(block, 5, 20);

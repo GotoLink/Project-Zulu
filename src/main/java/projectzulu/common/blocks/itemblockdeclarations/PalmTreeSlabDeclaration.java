@@ -35,9 +35,7 @@ public class PalmTreeSlabDeclaration extends BlockDeclaration {
     protected void registerBlock() {
         if (BlockList.palmTreeDoubleSlab.isPresent() && BlockList.palmTreeSlab.isPresent()) {
             Block block = BlockList.palmTreeSlab.get();
-            ItemZuluSlab.initialise((BlockSlab) BlockList.palmTreeSlab.get(),
-                    (BlockSlab) BlockList.palmTreeDoubleSlab.get());
-            GameRegistry.registerBlock(block, ItemZuluSlab.class, name.toLowerCase());
+            GameRegistry.registerBlock(block, ItemZuluSlab.class, name.toLowerCase(), DefaultProps.BlocksModId, block, BlockList.palmTreeDoubleSlab.get());
             OreDictionary.registerOre("slabWood", new ItemStack(block));
             OreDictionary.registerOre("slabPalm", new ItemStack(block));
             Blocks.fire.setFireInfo(block, 5, 20);

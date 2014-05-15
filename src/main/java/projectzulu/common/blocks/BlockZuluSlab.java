@@ -6,7 +6,6 @@ import java.util.Random;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockWoodSlab;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
@@ -16,31 +15,33 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class BlockZuluSlab extends BlockWoodSlab {
 
-    public static Block singleSlabID;
+    public Block singleSlabID;
     Block baseBlock;
-
-    /** Single Slab Constructor */
-    public BlockZuluSlab(Block baseBlock) {
-        super(false);
-        singleSlabID = this;
-        this.baseBlock = baseBlock;
+    /** Internal constructor helper */
+    private BlockZuluSlab(boolean bool){
+        super(bool);
         setLightOpacity(0);
         setHardness(2.0F);
         setResistance(5.0F);
         setStepSound(Block.soundTypeWood);
-        setCreativeTab(ProjectZulu_Core.projectZuluCreativeTab);
+        if(bool)
+            setCreativeTab(null);
+        else
+            setCreativeTab(ProjectZulu_Core.projectZuluCreativeTab);
+    }
+
+    /** Single Slab Constructor */
+    public BlockZuluSlab(Block baseBlock) {
+        this(false);
+        this.baseBlock = baseBlock;
+        singleSlabID = this;
     }
 
     /** Double Slab Constructor */
     public BlockZuluSlab(Block singleSlab, Block baseBlock) {
-        super(true);
-        singleSlabID = singleSlab;
+        this(true);
         this.baseBlock = baseBlock;
-        setLightOpacity(0);
-        setHardness(2.0F);
-        setResistance(5.0F);
-        setStepSound(Block.soundTypeWood);
-        setCreativeTab(ProjectZulu_Core.projectZuluCreativeTab);
+        singleSlabID = singleSlab;
     }
 
     @Override
