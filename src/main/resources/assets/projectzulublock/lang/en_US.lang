@@ -8,7 +8,7 @@ tile.palmtreedoubleslab.name=Palm Tree Double Slab
 tile.palmtreestairs.name=Palm Tree Stairs
 tile.palmtreeleaves.name=Palm Tree Leaves
 tile.palmtreesapling.name=Palm Tree Sapling
-tile.quickSand.name=QuickSand
+tile.quicksand.name=QuickSand
 tile.nightbloom.name=NightBloom
 tile.creeperblossom.name=Creeper Blossom
 tile.spikes.name=Ivory Spikes
@@ -51,6 +51,7 @@ tile.watereddirt.sand_4.name=Drenched Soaked Sand
 
 item.tile.uniFlowerPot.name=Universal Flower Pot
 item.waterdroplet.name=Water Droplets
+item.ankh.name=Ankh
 item.aloeveraseeds.name=Aloe Vera Seeds
 item.coconutmilkfragment.name=Coconut Milk Fragment
 item.coconutseed.name=Coconut Seed
