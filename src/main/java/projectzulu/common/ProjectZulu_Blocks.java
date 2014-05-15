@@ -64,13 +64,8 @@ import projectzulu.common.potion.EventHandleNullPotions;
 import projectzulu.common.potion.PZExtraPotionDeclaration;
 import projectzulu.common.potion.PZVanillaPotionDeclaration;
 import projectzulu.common.potion.PotionManager;
-import cpw.mods.fml.common.Mod;
-import cpw.mods.fml.common.Mod.EventHandler;
-import cpw.mods.fml.common.Mod.Instance;
-import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
-import cpw.mods.fml.common.event.FMLServerStartedEvent;
 import cpw.mods.fml.common.event.FMLServerStartingEvent;
 
 public class ProjectZulu_Blocks extends BaseModule {
@@ -98,16 +93,16 @@ public class ProjectZulu_Blocks extends BaseModule {
                 new ScaleItemDeclaration(), new FurPeltDeclaration(), new GenericCraftingItemsDeclaration(),
                 new CoconutItem(), new ScrapMeatDeclaration());
 
-        manager.addItemBlock(new ScaleArmorDeclaration(ProjectZulu_Core.proxy.addArmor("scaleArmor")),
-                new GoldScaleArmorDeclaration(ProjectZulu_Core.proxy.addArmor("goldscale")),
-                new IronScaleArmorDeclaration(ProjectZulu_Core.proxy.addArmor("ironscale")),
-                new DiamondScaleArmorDeclaration(ProjectZulu_Core.proxy.addArmor("diamondscale")), new WhiteClothArmorDeclaration(
-                        ProjectZulu_Core.proxy.addArmor("whitedesertcloth")), new RedClothArmorDeclaration(
-                        ProjectZulu_Core.proxy.addArmor("reddesertcloth")), new GreenClothArmorDeclaration(
-                        ProjectZulu_Core.proxy.addArmor("greendesertcloth")), new BlueClothArmorDeclaration(
-                        ProjectZulu_Core.proxy.addArmor("bluedesertcloth")), new CactusArmorDeclaration(
-                        ProjectZulu_Core.proxy.addArmor("cactusarmor")),
-                new FurArmorDeclaration(ProjectZulu_Core.proxy.addArmor("mammothfur")));
+        manager.addItemBlock(new ScaleArmorDeclaration("scaleArmor"),
+                new GoldScaleArmorDeclaration("goldscale"),
+                new IronScaleArmorDeclaration("ironscale"),
+                new DiamondScaleArmorDeclaration("diamondscale"), new WhiteClothArmorDeclaration(
+                        "whitedesertcloth"), new RedClothArmorDeclaration(
+                        "reddesertcloth"), new GreenClothArmorDeclaration(
+                        "greendesertcloth"), new BlueClothArmorDeclaration(
+                        "bluedesertcloth"), new CactusArmorDeclaration(
+                        "cactusarmor"),
+                new FurArmorDeclaration("mammothfur"));
     }
 
     @Override
@@ -128,7 +123,7 @@ public class ProjectZulu_Blocks extends BaseModule {
         zuluConfig.load();
         ProjectZuluLog.info("Starting Potion Init ");
         PotionManager.loadSettings(zuluConfig);
-        ProjectZuluLog.info("Finsished Potion Init ");
+        ProjectZuluLog.info("Finished Potion Init ");
         zuluConfig.save();
     }
 
@@ -142,7 +137,7 @@ public class ProjectZulu_Blocks extends BaseModule {
             ProjectZuluLog.info("Starting Potion Setup ");
             PotionManager.setupAndRegisterPotions();
             MinecraftForge.EVENT_BUS.register(new PotionEvents());
-            ProjectZuluLog.info("Finsished Potion Setup ");
+            ProjectZuluLog.info("Finished Potion Setup ");
         }
 
         /* Turn on NullPotionHandler */
