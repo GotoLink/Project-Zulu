@@ -4,7 +4,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 
-import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.player.EntityPlayer;
@@ -31,9 +30,9 @@ public class EventHookContainerClass {
 
     @SubscribeEvent
     public void onPlayerUpdateStarve(LivingUpdateEvent event) {
-        World worldObj = event.entity.worldObj;
-        if (worldObj != null && event.entity != null && event.entity instanceof EntityPlayer) {
+        if (event.entity != null && event.entity instanceof EntityPlayer) {
 
+            World worldObj = event.entity.worldObj;
             EntityPlayer thePlayer = (EntityPlayer) event.entity;
 
             int var1 = MathHelper.floor_double(thePlayer.posX);
@@ -81,7 +80,7 @@ public class EventHookContainerClass {
                 && event.entity instanceof EntityPlayer && event.source.getSourceOfDamage() instanceof EntityLiving) {
             EntityPlayer hurtEntity = (EntityPlayer) event.entity;
             EntityLiving attackingEntity = (EntityLiving) event.source.getSourceOfDamage();
-            if (attackingEntity != null && event.source.getDamageType() == "mob") {
+            if (event.source.getDamageType().equals("mob")) {
 
                 double cactusDamage = 0;
                 if (hurtEntity.inventory.armorInventory[3] != null && ItemList.cactusArmorHead.isPresent()

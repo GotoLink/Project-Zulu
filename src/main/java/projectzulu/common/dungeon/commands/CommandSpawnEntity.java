@@ -39,7 +39,7 @@ public class CommandSpawnEntity extends CommandBase{
     @Override
 	public void processCommand(ICommandSender commandSender, String[] stringArgs){
     	if(stringArgs.length < 2){
-			 throw new WrongUsageException("commands.spawnentity.usage", new Object[0]);
+			 throw new WrongUsageException("commands.spawnentity.usage");
 		}else{
 			double spawnTargetX = 0;
 			double spawnTargetY = 0;
@@ -54,8 +54,7 @@ public class CommandSpawnEntity extends CommandBase{
 			
 			Entity spawnableEntity = EntityList.createEntityByName(stringArgs[1], targetPlayer.worldObj);
 			if(spawnableEntity == null){
-				System.out.println("Entity is Null");
-				 throw new WrongUsageException("commands.spawnentity.noentity", new Object[0]);
+				 throw new WrongUsageException("commands.spawnentity.noentity");
 			}
 			
 			if(stringArgs.length == 2){
@@ -112,11 +111,11 @@ public class CommandSpawnEntity extends CommandBase{
 
 		if (lowerLimit != 0 || upperLimit != 0){
 			if (targetPos < (double)lowerLimit){
-				throw new NumberInvalidException("commands.generic.double.tooSmall", new Object[] {Double.valueOf(targetPos), Integer.valueOf(lowerLimit)});
+				throw new NumberInvalidException("commands.generic.double.tooSmall", targetPos, lowerLimit);
 			}
 
 			if (targetPos > (double)upperLimit){
-				throw new NumberInvalidException("commands.generic.double.tooBig", new Object[] {Double.valueOf(targetPos), Integer.valueOf(upperLimit)});
+				throw new NumberInvalidException("commands.generic.double.tooBig", targetPos, upperLimit);
 			}
 		}
 		return targetPos;

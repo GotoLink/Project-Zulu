@@ -12,21 +12,21 @@ import cpw.mods.fml.common.event.FMLServerStartedEvent;
 import cpw.mods.fml.common.event.FMLServerStartingEvent;
 
 public interface Module {
-    public abstract String getIdentifier();
+    public String getIdentifier();
 
-    public abstract void registration(ItemBlockManager manager);
+    public void registration(ItemBlockManager manager);
 
-    public abstract void registration(CustomEntityManager manager);
+    public void registration(CustomEntityManager manager);
 
-    public abstract void registration(FeatureGenerator manager);
+    public void registration(FeatureGenerator manager);
 
-    public abstract void preInit(FMLPreInitializationEvent event, File configDirectory);
+    public void preInit(FMLPreInitializationEvent event, File configDirectory);
 
-    public abstract void init(FMLInitializationEvent event, File configDirectory);
+    public void init(FMLInitializationEvent event, File configDirectory);
 
-    public abstract void postInit(FMLPostInitializationEvent event, File configDirectory);
+    public void postInit(FMLPostInitializationEvent event, File configDirectory);
     
-    public abstract void serverStarting(FMLServerStartingEvent event, File configDirectory);
+    public void serverStarting(FMLServerStartingEvent event, File configDirectory);
 
-    public abstract void serverStart(FMLServerStartedEvent event, File configDirectory);
+    public void serverStart(FMLServerStartedEvent event, File configDirectory);
 }

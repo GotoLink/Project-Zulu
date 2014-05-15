@@ -224,7 +224,7 @@ public class DeathGamerules {
             dropItems(player, itemsToDrop);
             boolean isCancelled = false;
             if (doDropEvent) {
-                PlayerDropsEvent dropEvent = createPlayerDropEvent(player, event.source, player.capturedDrops);
+                PlayerDropsEvent dropEvent = createPlayerDropEvent(player, event.source);
                 isCancelled = MinecraftForge.EVENT_BUS.post(dropEvent);
             }
             player.captureDrops = false;
@@ -262,8 +262,7 @@ public class DeathGamerules {
         }
     }
 
-    private PlayerDropsEvent createPlayerDropEvent(EntityPlayer player, DamageSource damageSource,
-            ArrayList<EntityItem> drops) {
+    private PlayerDropsEvent createPlayerDropEvent(EntityPlayer player, DamageSource damageSource) {
         int recentlyHit;
         try {
             recentlyHit = ObfuscationHelper.getCatchableFieldFromReflection("field_70718_bc", EntityLivingBase.class,
