@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.Tessellator;
 
+import net.minecraft.nbt.NBTBase;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.util.Point;
 
@@ -46,10 +47,10 @@ public class GUINBTList extends GuiScrollingList {
 
     @Override
     protected void elementClicked(int clickedIndex, boolean var2) {
-        ProjectZuluLog.info("Clicked on Tag of Type %s with name %s", nodeList.get(clickedIndex).getData()
-                .func_150283_g(nodeList.get(clickedIndex).getData().getId()), nodeList.get(clickedIndex).getTagName());
+        NBTNode nbt = nodeList.get(clickedIndex);
+        ProjectZuluLog.info("Clicked on Tag of Type %s with name %s", NBTBase.NBTTypes[nbt.getData().getId()], nbt.getTagName());
         // if(nodeList.get(clickedIndex).getChildren().size() == 0){
-        parent.setSelectedCurentNode(nodeList.get(clickedIndex));
+        parent.setSelectedCurentNode(nbt);
         selectedElement = clickedIndex;
         // }
     }
